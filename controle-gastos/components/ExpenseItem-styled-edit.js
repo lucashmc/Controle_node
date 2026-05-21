@@ -70,5 +70,48 @@ export default function HomeScreen(){
                setValor(item.valor);     // Preenche o campo de valor com o valor do item selecionado
                setEditandoId(item.id);   // Define o ID do item que está sendo editado para controlar o modo de edição
            };
-           
+           //Cáulculo do total de gastos
+           const totalGastos = gastos.reduce((acc, item) => acc + parseFloat(item.valor), 0).toFixed(2); // Soma os valores dos gastos e formata para 2 casas decimais
+           // retorna os elementos da interface
+              return(
+                       <View style={styles.container}>
+                          <Text style={styles.title}>Controle de Gastos</Text>
+                                  
+                                  
+                                  
+                                  
+                                  {/* campos de entrada para descrição  e valor */}
+                                  <TextInput
+                                      style={styles.input}
+                                      placeholder="Descrição"
+                                      value={descricao}
+                                      onChangeText={setDescricao}
+                                  />
+                                  
+                                  <TextInput
+                                      style={styles.input}
+                                      placeholder="Valor"
+                                      value={valor}
+                                      onChangeText={setValor}
+                                      keyboardType="numeric"
+                                  />
+                                  </View>);
+
         }
+
+        // Estilos aplicados á interface
+        const styles = StyleSheet.create({
+            container: {
+            
+            },
+
+            title: {
+            
+            },
+
+            input: {
+        
+
+            },
+                
+        });
